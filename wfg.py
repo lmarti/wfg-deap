@@ -15,6 +15,8 @@
 """
 The :mod:`wfg` module provides an implementation of the Walking Fish Group
 multi-objective optimization problem toolkit.
+
+Checkout https://github.com/lmarti/wfg-deap for examples.
 """
 
 from functools import reduce
@@ -53,6 +55,7 @@ def create_instance_wfg1(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg1', num_distance_params, num_position_params, num_objectives)
 
@@ -84,6 +87,7 @@ def create_instance_wfg2(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg2', num_distance_params, num_position_params, num_objectives)
 
@@ -114,6 +118,7 @@ def create_instance_wfg3(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg3', num_distance_params, num_position_params, num_objectives)
 
@@ -148,6 +153,7 @@ def create_instance_wfg4(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg4', num_distance_params, num_position_params, num_objectives)
 
@@ -182,6 +188,7 @@ def create_instance_wfg5(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg5', num_distance_params, num_position_params, num_objectives)
 
@@ -216,6 +223,7 @@ def create_instance_wfg6(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg6', num_distance_params, num_position_params, num_objectives)
 
@@ -250,6 +258,7 @@ def create_instance_wfg7(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg7', num_distance_params, num_position_params, num_objectives)
 
@@ -284,6 +293,7 @@ def create_instance_wfg8(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg8', num_distance_params, num_position_params, num_objectives)
 
@@ -318,6 +328,7 @@ def create_instance_wfg9(num_distance_params, num_position_params, num_objective
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     return _wfg_problem_instance('wfg9', num_distance_params, num_position_params, num_objectives)
 
@@ -354,12 +365,13 @@ def _wfg_problem_instance(problem_name, num_distance_params, num_position_params
         * ``num_position_params`` >=4.
         * ``num_distance_params`` + ``num_position_params`` >= ``num_objectives``.
         * In WFG2 and WFG3 ``num_distance_params`` must be divisible by 2.
+        * Checkout https://github.com/lmarti/wfg-deap for usage examples.
     """
     problem = _WFG_Problem_Factory(problem_name, num_distance_params, num_position_params, num_objectives)
     return problem.instance()
 
 class _WFG_Problem_Factory():
-    'A class that encapsulates all the WFG-related functionallity.'
+    'A class that encapsulates the WFG-related functionallity.'
 
     def __init__(self, problem_name, num_distance, num_position, num_objectives):
         self.problems = {'wfg1': self.evaluate_wfg1,
@@ -418,12 +430,7 @@ class _WFG_Problem_Factory():
         return x
 
     def calculate_objectives(self, x, s, h):
-        # revisar
         return [x[-1] + s[i] * h[i] for i in range(len(s))]
-
-    # ** revisar
-    def next_double(self, bound=1.0):
-        return bound * np.random.uniform()
 
     def evaluate_wfg1(self, individual):
         ind = self.destep(individual)
@@ -637,13 +644,13 @@ def _transformation_shift_linear(value, shift=0.35):
     return fabs(value - shift) / fabs(floor(shift - value) + shift)
 
 def _transformation_shift_deceptive(y, A=0.35, B=0.005, C=0.05):
-    """Shift: Parameter Deceptive Transformation."""
+    'Shift: Parameter Deceptive Transformation.'
     tmp1 = floor(y - A + B) * (1.0 - C + (A - B) / B) / (A - B)
     tmp2 = floor(A + B - y) * (1.0 - C + (1.0 - A - B) / B) / (1.0 - A - B)
     return 1.0 + (fabs(y - A) - B) * (tmp1 + tmp2 + 1.0 / B)
 
 def _transformation_shift_multi_modal(y, A, B, C):
-    """Shift: Parameter Multi-Modal Transformation."""
+    'Shift: Parameter Multi-Modal Transformation.'
     tmp1 = fabs(y - C) / (2.0 * (floor(C - y) + C))
     tmp2 = (4.0 * A + 2.0) * pi * (0.5 - tmp1)
     return (1.0 + cos(tmp2) + 4.0 * B * pow(tmp1, 2.0)) / (B + 2.0)
@@ -665,7 +672,7 @@ def _transformation_param_dependent(y, y_deg, A=0.98/49.98, B=0.02, C=50.0):
     return pow(y, B + (C - B) * aux)
 
 def _transformation_param_deceptive(y, A=0.35, B=0.001, C=0.05):
-    """Shift: Parameter Deceptive Transformation."""
+    'Shift: Parameter Deceptive Transformation.'
     tmp1 = floor(y - A + B) * (1.0 - C + (A - B) / B) / (A - B)
     tmp2 = floor(A + B - y) * (1.0 - C + (1.0 - A - B) / B) / (1.0 - A - B)
     return 1.0 + (fabs(y - A) - B) * (tmp1 + tmp2 + 1.0 / B)

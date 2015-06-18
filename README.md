@@ -22,7 +22,11 @@ This repo is meant to test and illustrate our implementation of the WFG problems
 * Walking Fish Group WFG toolkit project: http://www.wfg.csse.uwa.edu.au/toolkit/
 * jMetal: http://jmetal.sourceforge.net/problems.html
 
-## To be PR'ed to DEAP!
+## IPython notebook example
 
-After we test that the problem are correctly implemented we plan to submit the code to the [DEAP](http://github.com/deap/DEAP) guys.
+We have prepare an IPython notebook to check our code. It may be also usefull as a example on how to use the WFG problems. Grab it here: https://github.com/lmarti/wfg-deap/blob/master/WFG%20Test.ipynb
+
+## PR'ed to DEAP!
+
+After we have tested that the problems are correctly implemented we we have created a pull request for including `wfg.py` as part of [DEAP](http://github.com/deap/DEAP) guys.
 
