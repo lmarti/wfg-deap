@@ -2,14 +2,14 @@
 
 ## Programming the WFG multi-objective problem toolkit in Python
 
-### César Revelo and [Luis Martí](http://lmarti.com)
+### [César Revelo](https://github.com/CesarRevelo) and [Luis Martí](http://lmarti.com)
 #### Laboratory of Applied Intelligence and Robotics
 #### [Department of Electrical Engineering](http://www.ele.puc-rio.br)
 #### [Pontifícia Universidade Católica do Rio de Janeiro](http://www.puc-rio.br)
 
 This repo is meant to test and illustrate our implementation of the WFG problems.
 
-Papers:
+**Papers:**
 
 * Lucas Bradstreet, Luigi Barone, Lyndon While, Simon Huband, and Phil Hingston. Use of the WFG Toolkit and PISA for Comparison of Multi-objective Evolutionary Algorithms. 2007 IEEE Symposium on Computational Intelligence in Multi-criteria Decision-making. IEEE MCDM 2007, pages 382-389. IEEE, April 2007. [download](http://www.wfg.csse.uwa.edu.au/publications/WFG2007b.pdf)
 
@@ -17,7 +17,7 @@ Papers:
 
 * Simon Huband, Luigi Barone, Lyndon While, and Phil Hingston. A Scalable Multi-objective Test Problem Toolkit. 3rd International Conference on Evolutionary Multi-Criterion Optimization. EMO 2005, volume 3410 of Lecture Notes in Computer Science, pages 280-294. Springer-Verlag, March 2005.
 
-Existing implementations:
+**Existing implementations:**
 
 * Walking Fish Group WFG toolkit project: http://www.wfg.csse.uwa.edu.au/toolkit/
 * jMetal: http://jmetal.sourceforge.net/problems.html

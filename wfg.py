@@ -25,7 +25,7 @@ from copy import deepcopy
 import numpy as np
 
 
-def wfg1_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg1(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG1 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -34,18 +34,16 @@ def wfg1_problem_instance(num_distance_params, num_position_params, num_objectiv
     :param num_position_params: number of position parameters.
     :param num_objectives: number of objectives.
 
-    :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
+    :returns: A tuple of the form `(func, bounds)` where:
     * func: the function that evaluates an individual using the WFG1 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
 
     :raises: ValueError - if an incorrect parameter is detected.
 
     Example:
         Creating an instance of WFG1 with 6 distance parameters, 9 position
         parameters and 3 objectives:
-        >>> wfg1_func, (bounds_low, bounds_high), wfg1_sol = wfg1_problem_instance(6, 9, 3)
+        >>> wfg1_func, (bounds_low, bounds_high) = create_instance_wfg1(6, 9, 3)
         >>> toolbox.register('evaluate', wfg1_func)
     .. note::
         The number of variables of the problem is ``num_distance_params`` + ``num_position_params``.
@@ -58,7 +56,7 @@ def wfg1_problem_instance(num_distance_params, num_position_params, num_objectiv
     """
     return _wfg_problem_instance('wfg1', num_distance_params, num_position_params, num_objectives)
 
-def wfg2_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg2(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG2 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -67,16 +65,16 @@ def wfg2_problem_instance(num_distance_params, num_position_params, num_objectiv
     :param num_position_params: number of position parameters.
     :param num_objectives: number of objectives.
 
-    :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
+    :returns: A tuple of the form `(func, bounds)` where:
     * func: the function that evaluates an individual using the WFG2 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
+
     :raises: ValueError - if an incorrect parameter is detected.
+    
     Example:
         Creating an instance of WFG2 with 6 distance parameters, 9 position
         parameters and 3 objectives:
-        >>> wfg2_func, (bounds_low, bounds_high), wfg2_sol = wfg2_problem_instance(6, 9, 3)
+        >>> wfg2_func, (bounds_low, bounds_high) = create_instance_wfg2(6, 9, 3)
         >>> toolbox.register('evaluate', wfg2_func)
     .. note::
         The number of variables of the problem is ``num_distance_params`` + ``num_position_params``.
@@ -89,7 +87,7 @@ def wfg2_problem_instance(num_distance_params, num_position_params, num_objectiv
     """
     return _wfg_problem_instance('wfg2', num_distance_params, num_position_params, num_objectives)
 
-def wfg3_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg3(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG3 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -97,16 +95,16 @@ def wfg3_problem_instance(num_distance_params, num_position_params, num_objectiv
     :param num_distance_params: number of distance parameters.
     :param num_position_params: number of position parameters.
     :param num_objectives: number of objectives.
-    :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
+    
+    :returns: A tuple of the form `(func, bounds)` where:
     * func: the function that evaluates an individual using the WFG3 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
+
     :raises: ValueError - if an incorrect parameter is detected.
     Example:
         Creating an instance of WFG3 with 6 distance parameters, 9 position
         parameters and 3 objectives:
-        >>> wfg3_func, (bounds_low, bounds_high), wfg3_sol = wfg3_problem_instance(6, 9, 3)
+        >>> wfg3_func, (bounds_low, bounds_high) = create_instance_wfg3(6, 9, 3)
         >>> toolbox.register('evaluate', wfg3_func)
     .. note::
         The number of variables of the problem is ``num_distance_params`` + ``num_position_params``.
@@ -119,7 +117,7 @@ def wfg3_problem_instance(num_distance_params, num_position_params, num_objectiv
     """
     return _wfg_problem_instance('wfg3', num_distance_params, num_position_params, num_objectives)
 
-def wfg4_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg4(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG4 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -129,17 +127,15 @@ def wfg4_problem_instance(num_distance_params, num_position_params, num_objectiv
     :param num_position_params: number of position parameters.
     :param num_objectives: number of objectives.
 
-    :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
+    :returns: A tuple of the form `(func, bounds)` where:
     * func: the function that evaluates an individual using the WFG4 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
 
     :raises: ValueError - if an incorrect parameter is detected.
 
     Example:
         Creating an instance of WFG4 with 6 distance parameters, 9 position parameters and 3 objectives:
-        >>> wfg4_func, (bounds_low, bounds_high), wfg4_sol = wfg4_problem_instance(6, 9, 3)
+        >>> wfg4_func, (bounds_low, bounds_high) = create_instance_wfg4(6, 9, 3)
         >>> toolbox.register('evaluate', wfg4_func)
 
     .. note::
@@ -155,7 +151,7 @@ def wfg4_problem_instance(num_distance_params, num_position_params, num_objectiv
     """
     return _wfg_problem_instance('wfg4', num_distance_params, num_position_params, num_objectives)
 
-def wfg5_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg5(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG5 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -165,17 +161,15 @@ def wfg5_problem_instance(num_distance_params, num_position_params, num_objectiv
     :param num_position_params: number of position parameters.
     :param num_objectives: number of objectives.
 
-    :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
+    :returns: A tuple of the form `(func, bounds)` where:
     * func: the function that evaluates an individual using the WFG5 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
 
     :raises: ValueError - if an incorrect parameter is detected.
 
     Example:
         Creating an instance of WFG5 with 6 distance parameters, 9 position parameters and 3 objectives:
-        >>> wfg5_func, (bounds_low, bounds_high), wfg5_sol = wfg5_problem_instance(6, 9, 3)
+        >>> wfg5_func, (bounds_low, bounds_high) = create_instance_wfg5(6, 9, 3)
         >>> toolbox.register('evaluate', wfg5_func)
 
     .. note::
@@ -191,7 +185,7 @@ def wfg5_problem_instance(num_distance_params, num_position_params, num_objectiv
     """
     return _wfg_problem_instance('wfg5', num_distance_params, num_position_params, num_objectives)
 
-def wfg6_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg6(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG6 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -201,17 +195,15 @@ def wfg6_problem_instance(num_distance_params, num_position_params, num_objectiv
     :param num_position_params: number of position parameters.
     :param num_objectives: number of objectives.
 
-    :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
+    :returns: A tuple of the form `(func, bounds)` where:
     * func: the function that evaluates an individual using the WFG6 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
 
     :raises: ValueError -if an incorrect parameter is detected.
 
     Example:
         Creating an instance of WFG6 with 6 distance parameters, 9 position parameters and 3 objectives:
-        >>> wfg6_func, (bounds_low, bounds_high, wfg6_sol = wfg6_problem_instance(6, 9, 3)
+        >>> wfg6_func, (bounds_low, bounds_high) = create_instance_wfg6(6, 9, 3)
         >>> toolbox.register('evaluate', wfg6_func)
 
     .. note::
@@ -227,7 +219,7 @@ def wfg6_problem_instance(num_distance_params, num_position_params, num_objectiv
     """
     return _wfg_problem_instance('wfg6', num_distance_params, num_position_params, num_objectives)
 
-def wfg7_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg7(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG7 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -237,17 +229,15 @@ def wfg7_problem_instance(num_distance_params, num_position_params, num_objectiv
     :param num_position_params: number of position parameters.
     :param num_objectives: number of objectives.
 
-    :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
+    :returns: A tuple of the form `(func, bounds)` where:
     * func: the function that evaluates an individual using the WFG7 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
 
     :raises: ValueError - if an incorrect parameter is detected.
 
     Example:
         Creating an instance of WFG7 with 6 distance parameters, 9 position parameters and 3 objectives:
-        >>> wfg7_func, (bounds_low, bounds_high, wfg7_sol = wfg7_problem_instance(6, 9, 3)
+        >>> wfg7_func, (bounds_low, bounds_high) = create_instance_wfg7(6, 9, 3)
         >>> toolbox.register('evaluate', wfg7_func)
 
     .. note::
@@ -263,7 +253,7 @@ def wfg7_problem_instance(num_distance_params, num_position_params, num_objectiv
     """
     return _wfg_problem_instance('wfg7', num_distance_params, num_position_params, num_objectives)
 
-def wfg8_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg8(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG8 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -273,17 +263,15 @@ def wfg8_problem_instance(num_distance_params, num_position_params, num_objectiv
     :param num_position_params: number of position parameters.
     :param num_objectives: number of objectives.
 
-    :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
+    :returns: A tuple of the form `(func, bounds)` where:
     * func: the function that evaluates an individual using the WFG8 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
 
     :raises: ValueError - if an incorrect parameter is detected.
 
     Example:
         Creating an instance of WFG8 with 6 distance parameters, 9 position parameters and 3 objectives:
-        >>> wfg8_func, (bounds_low, bounds_high), wfg8_sol = wfg8_problem_instance(6, 9, 3)
+        >>> wfg8_func, (bounds_low, bounds_high) = create_instance_wfg8(6, 9, 3)
         >>> toolbox.register('evaluate', wfg8_func)
 
     .. note::
@@ -299,7 +287,7 @@ def wfg8_problem_instance(num_distance_params, num_position_params, num_objectiv
     """
     return _wfg_problem_instance('wfg8', num_distance_params, num_position_params, num_objectives)
 
-def wfg9_problem_instance(num_distance_params, num_position_params, num_objectives):
+def create_instance_wfg9(num_distance_params, num_position_params, num_objectives):
     """Creates an instance of one of the WFG9 problem.
     From: Huband, S., Hingston, P., Barone, L., & While, L. (2006).
     A review of multiobjective test problems and a scalable test problem toolkit.
@@ -312,14 +300,12 @@ def wfg9_problem_instance(num_distance_params, num_position_params, num_objectiv
     :returns: A tuple of the form `(func, bounds, sol_gen_func)` where:
     * func: the function that evaluates an individual using the WFG9 problem function.
     * bounds: a tuple containing the lower and higher bounds of the problem feasible space.
-    * sol_gen_func: a function that generates an optimal solution of the problem at a random
-    * location of the Pareto optimal front.
 
     :raises: ValueError if an incorrect parameter is detected.
 
     Example:
         Creating an instance of WFG9 with 6 distance parameters, 9 position parameters and 3 objectives:
-        >>> wfg9_func, (bounds_low, bounds_high), wfg9_sol = wfg9_problem_instance(6, 9, 3)
+        >>> wfg9_func, (bounds_low, bounds_high) = create_instance_wfg9(6, 9, 3)
         >>> toolbox.register('evaluate', wfg9_func)
 
     .. note::
@@ -385,15 +371,6 @@ class _WFG_Problem_Factory():
                          'wfg7': self.evaluate_wfg7,
                          'wfg8': self.evaluate_wfg8,
                          'wfg9': self.evaluate_wfg9}
-        self.solutions = {'wfg1': self.generate_wfg1_random_solution,
-                          'wfg2': self.generate_wfg27_random_solution,
-                          'wfg3': self.generate_wfg27_random_solution,
-                          'wfg4': self.generate_wfg27_random_solution,
-                          'wfg5': self.generate_wfg27_random_solution,
-                          'wfg6': self.generate_wfg27_random_solution,
-                          'wfg7': self.generate_wfg27_random_solution,
-                          'wfg8': self.generate_wfg8_random_solution,
-                          'wfg9': self.generate_wfg9_random_solution}
 
         self.validate_wfg_parameters(problem_name, num_distance, num_position, num_objectives)
         self.problem_name = problem_name
@@ -433,7 +410,7 @@ class _WFG_Problem_Factory():
         return [0.0] * self.num_vars, [2.0 * (i + 1) for i in range(self.num_vars)]
 
     def instance(self):
-        return self.problems[self.problem_name], self.get_bounds(), self.solutions[self.problem_name]
+        return self.problems[self.problem_name], self.get_bounds()
 
     def estimate_vec_x(self, t, a):
         x = [max(t[-1], a[i]) * (t[i] - 0.5) + 0.5 for i in range(len(t) - 1)]
@@ -447,46 +424,6 @@ class _WFG_Problem_Factory():
     # ** revisar
     def next_double(self, bound=1.0):
         return bound * np.random.uniform()
-
-    def generate_wfg1_random_solution(self):
-        # Calculate the distance parameters
-        solution = [pow(self.next_double(), 50.0) for _ in range(self.k)] + [0.35] * self.l
-
-        # Scale to the correct domain and return it.
-        return self.step_up(solution)
-
-    def generate_wfg27_random_solution(self):
-        # Random values of position params plus fixed distance params
-        solution = [self.next_double() for _ in range(self.k)] + [0.35] * self.l
-        return self.step_up(solution)
-
-    def generate_wfg8_random_solution(self):
-        def wfg8_dist_param(u):
-            term1 = fabs(floor(0.5 - u) + 0.98 / 49.98)
-            term2 = 0.02 + 49.98 * (0.98 / 49.98 - (1.0 - 2.0 * u) * term1)
-            return pow(0.35, pow(term2, -1.0))
-
-        #  Random values of position parameters
-        solution = [self.next_double() for _ in range(self.k)]
-
-        # Calculate the distance parameters
-        for i in range(self.k, self.num_vars):
-            solution.append(wfg8_dist_param(_reduction_weighted_sum(solution[:i], [1.0] * i)))
-
-        return self.step_up(solution)
-
-    def generate_wfg9_random_solution(self):
-        #  Random values of position parameters
-        solution = list([self.next_double() for _ in range(self.k)]) + [1.0] * (self.num_vars - self.k)
-
-        # Calculate the distance parameters
-        solution[-1] = 0.35
-        for i in range(self.num_vars - 2, self.k - 1, -1):
-            sub = solution[i + 1:]
-            tmp1 = _reduction_weighted_sum(sub, [1.0] * len(sub))
-            solution[i] = pow(0.35, pow(0.02 + 1.96 * tmp1, -1.0))
-
-        return self.step_up(solution)
 
     def evaluate_wfg1(self, individual):
         ind = self.destep(individual)
