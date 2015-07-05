@@ -28,5 +28,5 @@ We have prepare an IPython notebook to check our code. It may be also usefull as
 
 ## PR'ed to DEAP!
 
-After we have tested that the problems are correctly implemented we we have created a pull request for including `wfg.py` as part of [DEAP](http://github.com/deap/DEAP) guys.
+After we have tested that the problems are correctly implemented we have created a pull request for including `wfg.py` as part of [DEAP](http://github.com/deap/DEAP) guys.
 
