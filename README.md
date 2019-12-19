@@ -2,7 +2,7 @@
 
 ## Programming the WFG multi-objective problem toolkit in Python
 
-### [César Revelo](https://github.com/CesarRevelo) and [Luis Martí](http://lmarti.com)
+### [César Revelo](http://ingrevelo.github.io/) and [Luis Martí](http://lmarti.com)
 #### Laboratory of Applied Intelligence and Robotics
 #### [Department of Electrical Engineering](http://www.ele.puc-rio.br)
 #### [Pontifícia Universidade Católica do Rio de Janeiro](http://www.puc-rio.br)
